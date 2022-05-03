@@ -25,6 +25,8 @@ def get_city(url, url_pairing):
     city = input("ZADEJTE KRAJ (NAPR. PRAHA): ")
     while not check_entry(url, city):
         city = input("ZADEJTE KRAJ (NAPR. PRAHA): ")
+    city.lower()
+    city.capitalize()
     find_link = soup.find("td", text=city).find_next("td").find_next("td").find("a")
     my_url = url_pairing + find_link["href"]
     return my_url
